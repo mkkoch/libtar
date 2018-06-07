@@ -100,9 +100,7 @@ tar_extract_file(TAR *t, char *realname)
                 int lstatRc = lstat(realname, &s);
 		if (lstatRc == 0 || errno != ENOENT)
                 {
-#ifdef DEBUG
                         printf("No overwrite error, file=%s, lstatRc=%d, errno=%d", realname, lstatRc, errno);
-#endif
 			errno = EEXIST;
 			return -1;
 		}
